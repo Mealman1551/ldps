@@ -2,9 +2,8 @@ name: Build & Publish Maven
 
 on:
   push:
-    branches: ["main"]
-  release:
-    types: [created]
+    tags:
+      - "*"
 
 jobs:
   build:
@@ -30,7 +29,6 @@ jobs:
         run: mvn -B package
 
       - name: Publish to GitHub Packages
-        if: github.event_name == 'release'
         run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
         env:
           GITHUB_TOKEN: ${{ github.token }}
