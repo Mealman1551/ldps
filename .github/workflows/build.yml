@@ -20,15 +20,34 @@ jobs:
       - name: Set up OpenJDK 21 (Temurin)
         uses: actions/setup-java@v4
         with:
-          java-version: '21'
-          distribution: 'temurin'
-          server-id: github
-          settings-path: ${{ github.workspace }}
+          java-version: "21"
+          distribution: "temurin"
+
+      - name: Cache Maven dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2
+          key: maven-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            maven-${{ runner.os }}
 
       - name: Build with Maven
         run: mvn -B package
 
+      - name: Create Maven settings.xml
+        run: |
+          mkdir -p ~/.m2
+          cat > ~/.m2/settings.xml <<EOF
+          <settings>
+            <servers>
+              <server>
+                <id>github</id>
+                <username>${{ github.actor }}</username>
+                <password>${{ github.token }}</password>
+              </server>
+            </servers>
+          </settings>
+          EOF
+
       - name: Publish to GitHub Packages
-        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+        run: mvn -B deploy -s ~/.m2/settings.xml
