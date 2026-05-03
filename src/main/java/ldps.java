@@ -1,3 +1,6 @@
+/* LDPS - List Directory Print System */
+/* version 0.3.0 */
+
 import java.io.File;
 import java.util.Arrays;
 
@@ -15,7 +18,12 @@ public class ldps {
 
     public static void main(String[] args) {
 
-        File dir = new File(".");
+        System.out.println("LDPS started");
+        System.out.println("Working dir: " + System.getProperty("user.dir"));
+        System.out.flush();
+
+
+        File dir = new File(System.getProperty("user.dir"));
 
         for (String arg : args) {
             switch (arg) {
@@ -93,5 +101,7 @@ public class ldps {
         if (bytes < 1024 * 1024) return (bytes / 1024) + " KB";
         if (bytes < 1024 * 1024 * 1024) return (bytes / (1024 * 1024)) + " MB";
         return (bytes / (1024 * 1024 * 1024)) + " GB";
+        
     }
+
 }
