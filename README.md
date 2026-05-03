@@ -1,4 +1,5 @@
 # LDPS
+[![Build & Publish Maven](https://github.com/Mealman1551/ldps/actions/workflows/build.yml/badge.svg)](https://github.com/Mealman1551/ldps/actions/workflows/build.yml)
 
 Lightweight Directory Printing System
 
