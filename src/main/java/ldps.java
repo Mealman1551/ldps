@@ -1,5 +1,5 @@
 /* LDPS - List Directory Print System */
-/* version 0.3.1 */
+/* version 0.3.2 */
 
 import java.io.File;
 import java.util.Arrays;
