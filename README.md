@@ -7,21 +7,52 @@ A simple Java CLI tool for listing directory contents.
 
 ## Build
 
-javac -d out src/ldps.java
-jar cfe ldps.jar ldps -C out .
+To build the project, ensure you have Maven installed. Then run:
+
+```bash
+mvn clean compile
+```
+
+To create the JAR file:
+
+```bash
+mvn package
+```
 
 ## Run
 
-java -jar ldps.jar
+After building, run the application with:
 
-## Package and distribution
+```bash
+java -jar target/ldps.jar
+```
 
-Run `./jpackage.sh` or `./jpackage.bat`
+## Package and Distribution
 
-### Specifications on my side
+To create a distributable package, use the provided scripts:
 
-openjdk 26.0.1 2026-04-21
-OpenJDK Runtime Environment (build 26.0.1+8-34)
-OpenJDK 64-Bit Server VM (build 26.0.1+8-34, mixed mode, sharing)
+On Linux/Mac:
+
+```bash
+./jpackage.sh
+```
+
+On Windows:
+
+```bash
+jpackage.bat
+```
+
+This will build the project and create an app-image in the `dist` directory.
+
+### Specifications
+
+- OpenJDK 21 or later
+- Maven 3.6 or later
+
+Tested with:
+- openjdk 26.0.1 2026-04-21
+- OpenJDK Runtime Environment (build 26.0.1+8-34)
+- OpenJDK 64-Bit Server VM (build 26.0.1+8-34, mixed mode, sharing)
 
 ###### &copy; 2026 Mealman1551
