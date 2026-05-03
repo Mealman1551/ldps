@@ -13,6 +13,10 @@ jar cfe ldps.jar ldps -C out .
 
 java -jar ldps.jar
 
+## Package and distribution
+
+Run `./jpackage.sh` or `./jpackage.bat`
+
 ### Specifications on my side
 
 openjdk 26.0.1 2026-04-21
