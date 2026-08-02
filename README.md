@@ -34,13 +34,13 @@ To create a distributable package, use the provided scripts:
 On Linux/Mac:
 
 ```bash
-./jpackage.sh
+./build.sh
 ```
 
 On Windows:
 
 ```bash
-jpackage.bat
+./build.bat
 ```
 
 This will build the project and create an app-image in the `dist` directory.
@@ -50,9 +50,9 @@ This will build the project and create an app-image in the `dist` directory.
 - OpenJDK 21 or later
 - Maven 3.6 or later
 
-Tested with:
-- openjdk 26.0.1 2026-04-21
-- OpenJDK Runtime Environment (build 26.0.1+8-34)
-- OpenJDK 64-Bit Server VM (build 26.0.1+8-34, mixed mode, sharing)
+Tested and builded with:
+openjdk 25.0.4 2026-07-21 LTS
+OpenJDK Runtime Environment Temurin-25.0.4+7 (build 25.0.4+7-LTS)
+OpenJDK 64-Bit Server VM Temurin-25.0.4+7 (build 25.0.4+7-LTS, mixed mode, sharing)
 
 ###### &copy; 2026 Mealman1551
